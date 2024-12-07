@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-public class ElementsWebTableTest {
+public class Elements_WebTable {
     public WebDriver driver;
     @Test
 

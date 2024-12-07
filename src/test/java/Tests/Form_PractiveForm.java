@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
+import java.io.File;
+
 public class Form_PractiveForm {
       //Define variabila globala driver
     public WebDriver driver;
@@ -40,6 +42,11 @@ public class Form_PractiveForm {
         WebElement mobilePhoneField=driver.findElement(By.cssSelector("input[placeholder='Mobile Number']"));
         String phoneNumberValue="343323445";
         mobilePhoneField.sendKeys(phoneNumberValue);
+
+        WebElement pictureElement=driver.findElement(By.id("uploadPicture"));
+        String file = new File("src/test/resources/Emag.png").getAbsolutePath();
+        pictureElement.sendKeys(file);
+
 
     }
 }

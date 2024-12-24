@@ -70,6 +70,21 @@ public class Form_PractiveForm {
 
         }
 
+//        switch (genderValue){
+//            case "Male":
+//                genderValue.equals(maleField.getText());
+//                maleField.click();
+//                break;
+//            case "Female":
+//                genderValue.equals(femaleField.getText());
+//                femaleField.click();
+//                break;
+//            case "Other":
+//                genderValue.equals(otherField.getText());
+//                otherField.click();
+//
+//        }
+
         WebElement subjectElement = driver.findElement(By.id("subjectsInput"));
         String subjectValue = "Social Studies";
         subjectElement.sendKeys(subjectValue);

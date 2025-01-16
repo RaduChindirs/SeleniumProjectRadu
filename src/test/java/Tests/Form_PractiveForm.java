@@ -42,7 +42,7 @@ public class Form_PractiveForm {
         emailFiled.sendKeys(emailValue);
 
         WebElement mobilePhoneField = driver.findElement(By.cssSelector("input[placeholder='Mobile Number']"));
-        String phoneNumberValue = "343323445";
+        String phoneNumberValue = "3433234459";
         mobilePhoneField.sendKeys(phoneNumberValue);
 
         WebElement pictureElement = driver.findElement(By.id("uploadPicture"));
@@ -99,6 +99,10 @@ public class Form_PractiveForm {
         js.executeScript("arguments[0].click();", cityElement);// linie optionala
         cityElement.sendKeys("Delhi");
         cityElement.sendKeys(Keys.ENTER);
+
+        WebElement submitElement= driver.findElement(By.id("submit"));
+        js.executeScript("arguments[0].click();", submitElement);// linie optionala
+        submitElement.click();
 
     }
 }

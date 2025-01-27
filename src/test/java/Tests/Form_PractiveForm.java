@@ -2,11 +2,12 @@ package Tests;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.File;
+import java.util.Arrays;
+import java.util.List;
 
 public class Form_PractiveForm {
     //Define variabila globala driver
@@ -14,7 +15,7 @@ public class Form_PractiveForm {
 
     @Test
     public void Forms() {
-        driver = new EdgeDriver();
+        driver = new ChromeDriver();
         driver.get("https://demoqa.com/");
         driver.manage().window().maximize();
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -27,7 +28,7 @@ public class Form_PractiveForm {
         practiveFormField.click();
 
 
-       // js.executeScript("window.scrollBy(0, 400)");
+        // js.executeScript("window.scrollBy(0, 400)");
 
         WebElement firstNameFiled = driver.findElement(By.id("firstName"));
         String firstnameValue = "Casian";
@@ -44,12 +45,43 @@ public class Form_PractiveForm {
         WebElement mobilePhoneField = driver.findElement(By.cssSelector("input[placeholder='Mobile Number']"));
         String phoneNumberValue = "3433234459";
         mobilePhoneField.sendKeys(phoneNumberValue);
+        mobilePhoneField.sendKeys(Keys.ENTER);
+
+        WebElement dateOfBirthField = driver.findElement(By.id("dateOfBirthInput"));
+        js.executeScript("arguments[0].click();", dateOfBirthField);
+        //  dateOfBirthField.click();
+
+        WebElement monthSelctorField = driver.findElement(By.xpath("//select[@class='react-datepicker__month-select']"));
+        monthSelctorField.click();
+
+        WebElement monthField = driver.findElement(By.xpath("//select[@class='react-datepicker__month-select']/option[@value='7']"));
+        String month=monthField.getText();
+        monthField.click();
+
+        WebElement yearField = driver.findElement(By.xpath("//select[@class='react-datepicker__year-select']/option[text()='1980']"));
+        String year= yearField.getText();
+        yearField.click();
+
+        WebElement dayField = driver.findElement(By.xpath("//div[@aria-label='Choose Saturday, August 2nd, 1980']"));
+        String day= dayField.getText();
+        dayField.click();
+
+
+        String anNastereComplect="0"+day + " "+ month +"," + year;
+        System.out.println( anNastereComplect);
+
+
 
         WebElement pictureElement = driver.findElement(By.id("uploadPicture"));
         String file = new File("src/test/resources/Emag.png").getAbsolutePath();
         pictureElement.sendKeys(file);
 
         js.executeScript("window.scrollBy(0, 400)");
+
+        WebElement addressField = driver.findElement(By.id("currentAddress"));
+        String addressValue = "Str Fabricii de Zahar nr 11";
+        addressField.sendKeys(addressValue);
+        addressField.sendKeys(Keys.ENTER);
 
         WebElement maleGenderField = driver.findElement(By.xpath("//label[@for='gender-radio-1']"));
         WebElement femalelGenderField = driver.findElement(By.xpath("//label[@for='gender-radio-2']"));
@@ -90,6 +122,22 @@ public class Form_PractiveForm {
         subjectElement.sendKeys(subjectValue);
         subjectElement.sendKeys(Keys.ENTER);
 
+        WebElement sportFiled = driver.findElement(By.xpath("//label[@for='hobbies-checkbox-1']"));
+        WebElement readingField = driver.findElement(By.xpath("//label[@for='hobbies-checkbox-2']"));
+        WebElement musincFiled = driver.findElement(By.xpath("//label[@for='hobbies-checkbox-3']"));
+
+        String hobbiValue = "Music";
+
+        if (sportFiled.getText().equals(hobbiValue)) {
+            sportFiled.click();
+        } else if (readingField.getText().equals(hobbiValue)) {
+            readingField.click();
+
+        } else if (musincFiled.getText().equals(hobbiValue)) {
+            musincFiled.click();
+
+        }
+
         WebElement stateElement = driver.findElement(By.id("react-select-3-input"));
         js.executeScript("arguments[0].click();", stateElement);// linie optionala
         stateElement.sendKeys("NCR");
@@ -100,9 +148,28 @@ public class Form_PractiveForm {
         cityElement.sendKeys("Delhi");
         cityElement.sendKeys(Keys.ENTER);
 
-        WebElement submitElement= driver.findElement(By.id("submit"));
+        WebElement submitElement = driver.findElement(By.id("submit"));
         js.executeScript("arguments[0].click();", submitElement);// linie optionala
-        submitElement.click();
+        // submitElement.click();
+
+        List<String> expectedLables = Arrays.asList("Student Name", "Student Email", "Gender", "Mobile", "Date of Birth",
+                "Subjects", "Hobbies", "Picture", "Address", "State and City");
+
+        List<String> expectedValues = Arrays.asList("Casian Manole", emailValue, "Male", phoneNumberValue, anNastereComplect,//anNastereValue   "02 August,1980"
+                "Social Studies", hobbiValue, "Emag.png", "Str Fabricii de Zahar nr 11", "NCR Delhi");
+
+        List<WebElement> labels = driver.findElements(By.xpath("//tbody/tr/td[1]"));
+        List<WebElement> valori = driver.findElements(By.xpath("//tbody/tr/td[2]"));
+        for (int i = 0; i <= 9; i++) {
+
+            WebElement coloanaLabels = labels.get(i);
+            WebElement coloanaValori = valori.get(i);
+            System.out.println("Lable: " + coloanaLabels.getText() + " = " + coloanaValori.getText());
+            Assert.assertEquals(coloanaValori.getText(), expectedValues.get(i));
+            Assert.assertEquals(coloanaLabels.getText(), expectedLables.get(i));
+
+        }
 
     }
-}
+    }
+

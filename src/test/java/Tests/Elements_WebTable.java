@@ -69,6 +69,12 @@ public class Elements_WebTable {
 
         WebElement submitField = driver.findElement(By.id("submit"));
         submitField.click();
+     //  Comparare tabel initial cu cel dupa introducere nou record
+//        List<WebElement> webTableNou = driver.findElements(By.xpath("//div[@class='rt-tbody'] /div/div[@class='rt-tr -even' or @class='rt-tr -odd']"));
+//        Integer sizeDupaIntroducereNouRecord = webTableNou.size();
+//        System.out.println("Nr de element in tabel dupa introducere nou record este  " + sizeDupaIntroducereNouRecord);
+//
+//        Assert.assertTrue(actualTableSize + 1==sizeDupaIntroducereNouRecord);
 
 
 //        Integer expectedTableSize = actualTableSize + 1;

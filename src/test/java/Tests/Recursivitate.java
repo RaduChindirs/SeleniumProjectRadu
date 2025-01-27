@@ -18,26 +18,32 @@ public class Recursivitate {
         driver = new EdgeDriver();
         driver.get("https://demoqa.com/sortable");
         driver.manage().window().maximize();
-        Actions actions = new Actions(driver);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0, 400)");
         List<WebElement> listaElement = driver.findElements(By.xpath("//div[@id='demo-tabpane-list']//div[@class='list-group-item list-group-item-action']"));
-        for (int i = 1; i < listaElement.size() - 1; i++) {
-            WebElement webElement = listaElement.get(i);
-            WebElement urmatorulElement = listaElement.get(i++);
-            System.out.println("Numarul elementului este " + webElement.getText());
-            actions.clickAndHold(webElement) //metode predefinite
-                    .moveToElement(urmatorulElement)
-                    .release()
-                    .build()
-                    .perform();
-        }
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
 
-            e.printStackTrace();
+       // Printeaza o lista cu elemente
+        for (int i = 0; i < listaElement.size() - 1; i++) {
+            WebElement webElement = listaElement.get(i);
+            System.out.println("Numarul elementului este:" + webElement.getText());
         }
+  // Metoda predefinata
+//        for (int i = 1; i < listaElement.size() - 1; i++) {
+//            WebElement webElement = listaElement.get(i);
+//            WebElement urmatorulElement = listaElement.get(i++);
+//            System.out.println("Numarul elementului este " + webElement.getText());
+//            actions.clickAndHold(webElement) //metode predefinite
+//                    .moveToElement(urmatorulElement)
+//                    .release()
+//                    .build()
+//                    .perform();
+//        }
+//        try {
+//            Thread.sleep(100);
+//        } catch (InterruptedException e) {
+//
+//            e.printStackTrace();
+//        }
     }
 
 }

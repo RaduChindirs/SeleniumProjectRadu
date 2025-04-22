@@ -17,6 +17,6 @@ public class WindowsMethods {
     }
 // minutu 7 video 13
     public void swithcnToMainTab (){
-        switchToMain();
+        //switchToMain();
     }
 }

@@ -29,9 +29,10 @@ public class ElementsMethods {
 
     public void selectElementFromListByText(List<WebElement> elementsList, String value) {
         for (int i = 0; i < elementsList.size(); i++) {
-    if (elementsList.get(i).getText().equals(value)){
-        clickOnElements(elementsList.get(i));
-    }
+            if (elementsList.get(i).getText().equals(value)) {
+                clickOnElements(elementsList.get(i));
+                break;
+            }
         }
     }
 }

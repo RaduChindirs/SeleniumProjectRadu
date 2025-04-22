@@ -2,8 +2,11 @@ package Tests;
 
 import HelperMethods.ElementsMethods;
 import HelperMethods.JavaScriptMethods;
+import Pages.CommonPage;
+import Pages.HomePage;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -17,6 +20,8 @@ public class Form_PracticeForm {
     public WebDriver driver;
     public ElementsMethods elementsMethods;
     public JavaScriptMethods javaScriptMethods;
+    public HomePage homePage;
+    public CommonPage commonPage;
 
     @Test
     public void Forms() {
@@ -25,32 +30,32 @@ public class Form_PracticeForm {
         driver.manage().window().maximize();
         elementsMethods = new ElementsMethods(driver);
         javaScriptMethods = new JavaScriptMethods(driver);
-
-       javaScriptMethods.javaScriptScrollPage(0,400);
-//        JavascriptExecutor js = (JavascriptExecutor) driver;
-//        js.executeScript("window.scrollBy(0, 400)");
-
-        WebElement formElement = driver.findElement(By.xpath("//h5[text()='Forms']"));
-
-        elementsMethods.clickOnElements(formElement);  //refactorizare si folosire de constructor din Helper Method
-        //formElement.click();                         // inaite de a folosi methoda ElementsMethods
-
-        WebElement practiveFormField = driver.findElement(By.xpath("//span[text()='Practice Form']"));
-        elementsMethods.clickOnElements(practiveFormField); //refactorizare si folosire de constructor din Helper Method
-        //practiveFormField.click();                        // inaite de a folosi methoda ElementsMethods
+        homePage = new HomePage(driver);
+        commonPage=new CommonPage(driver);
 
 
-        // js.executeScript("window.scrollBy(0, 400)");
-//
+
+
+//        javaScriptMethods.javaScriptScrollPage(0, 400);
+//        List<WebElement> elementsField = driver.findElements(By.xpath("//h5"));
+           homePage.GoToDesiredMeniu("Forms");
+//        elementsMethods.selectElementFromListByText(elementsField, "Forms");
+
+          commonPage.GoToDesiredSubMeniu("Practice Form");
+        // Fa o lista cu toate 33 submeniuri //span[@class='text'
+//        List<WebElement> elementTable = driver.findElements(By.xpath("//span[@class='text']"));
+//        elementsMethods.selectElementFromListByText(elementTable, "Practice Form");
+        // WebElement practiveFormField = driver.findElement(By.xpath("//span[text()='Practice Form']"));
+        //   elementsMethods.clickOnElements(practiveFormField); //refactorizare si folosire de constructor din Helper Method
+
+
         WebElement firstNameFiled = driver.findElement(By.id("firstName"));
         elementsMethods.fillElement(firstNameFiled, "Casian");
-//        String firstnameValue = "Casian";
-//        firstNameFiled.sendKeys(firstnameValue);
+
 //
         WebElement lastNameField = driver.findElement(By.id("lastName"));
         elementsMethods.fillElement(lastNameField, "Manole");
-//        String lastNameValue = "Manole";
-//        lastNameField.sendKeys(lastNameValue);
+
 //
         WebElement emailFiled = driver.findElement(By.id("userEmail"));
         elementsMethods.fillElement(emailFiled, "radu@r.com");
@@ -109,11 +114,11 @@ public class Form_PracticeForm {
         genderElements.add(femalelGenderField);
         genderElements.add(otherGenderField);
 
-        String genderValue = "Male";
+        //String genderValue = "Male";
         // if (genderValue.equals("AAAA")) ;
         // maleGenderField.click();
 
-        elementsMethods.selectElementFromListByText(genderElements, "Female");
+        elementsMethods.selectElementFromListByText(genderElements, "Male");
 
 //        if (maleGenderField.getText().equals(genderValue)) {
 //            maleGenderField.click();

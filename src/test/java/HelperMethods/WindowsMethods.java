@@ -11,12 +11,31 @@ public class WindowsMethods {
     public WindowsMethods(WebDriver driver) {
         this.driver = driver;
     }
-    public void switchToOpenTabs (){
+
+    public void switchToOpenTabs() {
         List<String> tabList = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tabList.get(1));
     }
-// minutu 7 video 13
-    public void swithcnToMainTab (){
-        //switchToMain();
+    public void switchToMain(){
+        List<String> tabList = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(tabList.get(0));
+    }
+
+    public void swithcnToMainTab() {
+        switchToMain();
+    }
+    public void switchToOpenWindow (){
+        switchToOpenTabs();
+    }
+
+    public void switchToMainWindow (){
+        switchToMain();
+    }
+
+
+
+
+    public void close (){
+        driver.close();
     }
 }

@@ -1,5 +1,6 @@
 package HelperMethods;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -19,6 +20,9 @@ public class ElementsMethods {
     }
 
     public void fillElement(WebElement element, String value) {
+        element.sendKeys(value);
+    }
+    public void fillElement(WebElement element, Keys value) {
         element.sendKeys(value);
     }
 

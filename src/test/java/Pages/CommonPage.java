@@ -1,8 +1,6 @@
 package Pages;
 
-import HelperMethods.AlertMethods;
-import HelperMethods.ElementsMethods;
-import HelperMethods.JavaScriptMethods;
+import HelperMethods.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,12 +13,16 @@ public class CommonPage {
     ElementsMethods elementsMethods;
     JavaScriptMethods javaScriptMethods;
     AlertMethods alertMethods;
+    WindowsMethods windowsMethods;
+    FramesMethods framesMethods;
 
     public CommonPage(WebDriver driver) {
         this.driver = driver;
         this.elementsMethods = new ElementsMethods(driver);
         this.javaScriptMethods = new JavaScriptMethods(driver);
         this.alertMethods=new AlertMethods(driver);
+        this.windowsMethods=new WindowsMethods(driver);
+        this.framesMethods=new FramesMethods(driver);
         PageFactory.initElements(driver,this);
     }
     @FindBy(xpath = "//span[@class='text']")
@@ -29,6 +31,6 @@ public class CommonPage {
     public void GoToDesiredSubMeniu (String subMenu){
         javaScriptMethods.javaScriptScrollPage(0,400);
         elementsMethods.selectElementFromListByText(subElements, subMenu);
-        javaScriptMethods.javaScriptScrollPage(0, 400);
+      //  javaScriptMethods.javaScriptScrollPage(0, 400);
     }
 }

@@ -1,37 +1,20 @@
 package Tests;
 
-import HelperMethods.AlertMethods;
-import HelperMethods.ElementsMethods;
-import HelperMethods.JavaScriptMethods;
 import Pages.AlertsPage;
 import Pages.CommonPage;
 import Pages.HomePage;
 import ShareData.ShareData;
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-import java.sql.Driver;
-import java.time.Duration;
-
-public class AlertTest extends ShareData {
-//    public ElementsMethods elementsMethods;
-//    public JavaScriptMethods javaScriptMethods;
+public class AlertsFrameWindows_Alerts extends ShareData {
     public HomePage homePage;
     public CommonPage commonPage;
     public AlertsPage alertsPage;
-
 
     @Test
     public void automationMethod () {
         commonPage = new CommonPage(getDriver());
         alertsPage = new AlertsPage(getDriver());
-//        elementsMethods = new ElementsMethods(getDriver());
-//        javaScriptMethods = new JavaScriptMethods(getDriver());
         homePage = new HomePage(getDriver());
         homePage.GoToDesiredMeniu("Alerts, Frame & Windows");
         commonPage.GoToDesiredSubMeniu("Alerts");

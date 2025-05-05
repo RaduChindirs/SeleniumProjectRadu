@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PracticeFormePage extends CommonPage {
-  //  public WebDriver driver;
+    //  public WebDriver driver;
 //    public ElementsMethods elementsMethods;
 //    public JavaScriptMethods javaScriptMethods;
 
@@ -24,67 +24,67 @@ public class PracticeFormePage extends CommonPage {
 //    }
 
     @FindBy(id = "firstName")
-    private  WebElement firstNameElement;
+    private WebElement firstNameElement;
 
     @FindBy(id = "lastName")
     private WebElement lastNameElement;
 
     @FindBy(id = "userEmail")
-    private  WebElement emailElement;
+    private WebElement emailElement;
 
     @FindBy(css = "input[placeholder='Mobile Number']")
     private WebElement mobilePhoneElement;
 
     @FindBy(xpath = "//label[@for='gender-radio-1']")
-    private  WebElement maleGenderElement;
+    private WebElement maleGenderElement;
 
     @FindBy(xpath = "//label[@for='gender-radio-2']")
-    private  WebElement femaleGenderElement;
+    private WebElement femaleGenderElement;
 
     @FindBy(xpath = "//label[@for='gender-radio-3']")
-    private  WebElement otherGenderElement;
+    private WebElement otherGenderElement;
 
     @FindBy(id = "currentAddress")
-    private  WebElement adressElement;
+    private WebElement adressElement;
 
     @FindBy(id = "react-select-3-input")
-    private  WebElement stateElement;
+    private WebElement stateElement;
 
     @FindBy(id = "react-select-4-input")
-    private  WebElement cityElement;
+    private WebElement cityElement;
 
     @FindBy(xpath = "//label[@for='hobbies-checkbox-3']")
-    private  WebElement musicHobbyElement;
+    private WebElement musicHobbyElement;
 
     @FindBy(xpath = "//label[@for='hobbies-checkbox-1']")
-    private  WebElement sportsHobbyElement;
+    private WebElement sportsHobbyElement;
 
     @FindBy(xpath = "//label[@for='hobbies-checkbox-2']")
-    private  WebElement readingHobbyElement;
+    private WebElement readingHobbyElement;
 
 //    @FindBy(xpath = "//div[@id='subjectsContainer']")
 //    WebElement subjectElement;
 
     @FindBy(id = "subjectsInput")
-    private  WebElement subjectElement;
+    private WebElement subjectElement;
 
     @FindBy(id = "dateOfBirthInput")
-    private  WebElement dateOfBirthElement;
+    private WebElement dateOfBirthElement;
 
-    @FindBy(id="uploadPicture")
-    private  WebElement uploadPictures;
+    @FindBy(id = "uploadPicture")
+    private WebElement uploadPictures;
 
     @FindBy(xpath = "//select[@class='react-datepicker__month-select']")
-    private   WebElement monthSelectorElement;
+    private WebElement monthSelectorElement;
 
     @FindBy(xpath = "//select[@class='react-datepicker__month-select']//option")
-    private  List<WebElement> monthsElementsList;
+    private List<WebElement> monthsElementsList;
 
     @FindBy(xpath = "//select[@class='react-datepicker__year-select']//option")
-    private  List<WebElement> yearsElementsList;
+    private List<WebElement> yearsElementsList;
 
     @FindBy(xpath = "//div[@class='react-datepicker__month']//div")
-    private  List<WebElement> daysElementsList;
+    private List<WebElement> daysElementsList;
 
     public PracticeFormePage(WebDriver driver) {
         super(driver);
@@ -111,7 +111,6 @@ public class PracticeFormePage extends CommonPage {
                 break;
         }
         javaScriptMethods.javaScriptScrollPage(0, 400);
-
     }
 
     public void completeSubject(String subject) {
@@ -133,7 +132,6 @@ public class PracticeFormePage extends CommonPage {
         elementsMethods.clickMultipleValues(hobiesElement, hobies);
     }
 
-
     public void setDateOfBirth(String month, String year, String day) {
         elementsMethods.clickOnElements(dateOfBirthElement);
         elementsMethods.clickOnElements(monthSelectorElement);
@@ -142,37 +140,22 @@ public class PracticeFormePage extends CommonPage {
         elementsMethods.selectElementFromListByText(daysElementsList, day);
     }
 
-    public void takeTheValueSetForBirthDay (){
+    public void takeTheValueSetForBirthDay() {
         elementsMethods.selectTextFromAnElement(dateOfBirthElement);
     }
 
-    public void uploadPictures(){
+    public void uploadPictures() {
         elementsMethods.uploadPictures(uploadPictures);
     }
 
-    public void selectStateAndCity(String state, String city){
+    public void selectStateAndCity(String state, String city) {
         javaScriptMethods.forceClick(stateElement);
         elementsMethods.fillElement(stateElement, state);
         stateElement.sendKeys(Keys.ENTER);
         javaScriptMethods.forceClick(cityElement);
         elementsMethods.fillElement(cityElement, city);
         cityElement.sendKeys(Keys.ENTER);
-
     }
-
-
-
-    //        WebElement stateElement = driver.findElement(By.id("react-select-3-input"));
-//        javaScriptMethods.forceClick(stateElement);
-//        stateElement.sendKeys("NCR");
-//        stateElement.sendKeys(Keys.ENTER);
-//
-//        WebElement cityElement = driver.findElement(By.id("react-select-4-input"));
-//       // javaScriptMethods.javaScriptScrollPage(0, 400);
-//        javaScriptMethods.forceClick(cityElement);
-//        cityElement.sendKeys("Delhi");
-//        cityElement.sendKeys(Keys.ENTER);
-
 }
 
 

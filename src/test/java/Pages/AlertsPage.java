@@ -6,10 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class AlertsPage extends CommonPage {
- //   public WebDriver driver;
+    //   public WebDriver driver;
 //    public ElementsMethods elementsMethods;
 //    public JavaScriptMethods javaScriptMethods;
- // public AlertMethods alertMethods;
+    // public AlertMethods alertMethods;
 
 //    public AlertsPage(WebDriver driver) {
 //        this.elementsMethods = new ElementsMethods(driver);
@@ -21,7 +21,7 @@ public class AlertsPage extends CommonPage {
 
 
     @FindBy(id = "alertButton")
-   private WebElement alertButton;
+    private WebElement alertButton;
 
     @FindBy(id = "timerAlertButton")
     private WebElement alertDelayElements;
@@ -33,21 +33,21 @@ public class AlertsPage extends CommonPage {
     private WebElement promptButtonElements;
 
 
-
     public AlertsPage(WebDriver driver) {
         super(driver);
     }
 
-    public void alertOkElements (){
+    public void alertOkElements() {
         elementsMethods.clickOnElements(alertButton);
         alertMethods.interractWithAlertsOK();
     }
 
-    public void alertDelayElements (){
+    public void alertDelayElements() {
         elementsMethods.clickOnElements(alertDelayElements);
         alertMethods.interrectWithDelayAlert();
     }
-    public void alertConfirmElements (){
+
+    public void alertConfirmElements() {
         elementsMethods.clickOnElements(alertConfirmElements);
         alertMethods.interrectWithConfirmAlert();
     }
@@ -61,10 +61,3 @@ public class AlertsPage extends CommonPage {
     }
 
 }
-
-//
-//        WebElement promtButtonElement = driver.findElement(By.id("promtButton"));
-//        promtButtonElement.click();
-//        Alert promtButton = driver.switchTo().alert();
-//        promtButton.sendKeys("Radu Chindris");
-//        promtButton.accept();

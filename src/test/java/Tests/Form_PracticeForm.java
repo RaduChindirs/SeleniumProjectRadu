@@ -24,8 +24,8 @@ import java.util.List;
 public class Form_PracticeForm extends ShareData {
     //Define variabila globala driver
    // public WebDriver driver; nu mai este nevoie deoarece o mosteneste de la parite ShareData
-    public ElementsMethods elementsMethods;
-    public JavaScriptMethods javaScriptMethods;
+//    public ElementsMethods elementsMethods;
+//    public JavaScriptMethods javaScriptMethods;
     public HomePage homePage;
     public CommonPage commonPage;
     public PracticeFormePage practiceFormePage;
@@ -35,11 +35,12 @@ public class Form_PracticeForm extends ShareData {
 //        driver = new FirefoxDriver();
 //        driver.get("https://demoqa.com/");
 //        driver.manage().window().maximize();
-        elementsMethods = new ElementsMethods(driver);
-        javaScriptMethods = new JavaScriptMethods(driver);
-        homePage = new HomePage(driver);
-        commonPage = new CommonPage(driver);
-        practiceFormePage = new PracticeFormePage(driver);
+//        elementsMethods = new ElementsMethods(driver);
+//        javaScriptMethods = new JavaScriptMethods(driver);
+
+        homePage = new HomePage(getDriver());
+        commonPage = new CommonPage(getDriver());
+        practiceFormePage = new PracticeFormePage(getDriver());
 
         homePage.GoToDesiredMeniu("Forms");
         commonPage.GoToDesiredSubMeniu("Practice Form");
@@ -48,7 +49,7 @@ public class Form_PracticeForm extends ShareData {
         practiceFormePage.commpleteGender("Female");
 
 //      practiceFormePage.completeSubject("Social Studies");
-        javaScriptMethods.javaScriptScrollPage(0, 400);
+  //      javaScriptMethods.javaScriptScrollPage(0, 400);
 
 
         List<String> subjects = new ArrayList<>();

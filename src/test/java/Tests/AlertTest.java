@@ -19,8 +19,8 @@ import java.sql.Driver;
 import java.time.Duration;
 
 public class AlertTest extends ShareData {
-    public ElementsMethods elementsMethods;
-    public JavaScriptMethods javaScriptMethods;
+//    public ElementsMethods elementsMethods;
+//    public JavaScriptMethods javaScriptMethods;
     public HomePage homePage;
     public CommonPage commonPage;
     public AlertsPage alertsPage;
@@ -28,14 +28,14 @@ public class AlertTest extends ShareData {
 
     @Test
     public void automationMethod () {
-        commonPage = new CommonPage(driver);
-        alertsPage = new AlertsPage(driver);
-        elementsMethods = new ElementsMethods(driver);
-        javaScriptMethods = new JavaScriptMethods(driver);
-        homePage = new HomePage(driver);
+        commonPage = new CommonPage(getDriver());
+        alertsPage = new AlertsPage(getDriver());
+//        elementsMethods = new ElementsMethods(getDriver());
+//        javaScriptMethods = new JavaScriptMethods(getDriver());
+        homePage = new HomePage(getDriver());
         homePage.GoToDesiredMeniu("Alerts, Frame & Windows");
         commonPage.GoToDesiredSubMeniu("Alerts");
-        javaScriptMethods.javaScriptScrollPage(0, 400);
+ //       javaScriptMethods.javaScriptScrollPage(0, 400);
 
         alertsPage.alertOkElements();
         alertsPage.alertDelayElements();

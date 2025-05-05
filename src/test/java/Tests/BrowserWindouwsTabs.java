@@ -29,23 +29,23 @@ public class BrowserWindouwsTabs extends ShareData {
     public void automationMethod() {
 
 
-        elementsMethods = new ElementsMethods(driver);
-        javaScriptMethods = new JavaScriptMethods(driver);
-        homePage = new HomePage(driver);
-        commonPage = new CommonPage(driver);
-        windowsMethods = new WindowsMethods(driver);
+        elementsMethods = new ElementsMethods(getDriver());
+        javaScriptMethods = new JavaScriptMethods(getDriver());
+        homePage = new HomePage(getDriver());
+        commonPage = new CommonPage(getDriver());
+        windowsMethods = new WindowsMethods(getDriver());
 
         javaScriptMethods.javaScriptScrollPage(0, 400);
 
         homePage.GoToDesiredMeniu("Alerts, Frame & Windows");
         commonPage.GoToDesiredSubMeniu("Browser Windows");
 
-        WebElement newTab = driver.findElement(By.id("tabButton"));
+        WebElement newTab = getDriver().findElement(By.id("tabButton"));
         elementsMethods.clickOnElements(newTab);
         // Schimba foculus seleniniumului pe nou tab
         windowsMethods.switchToOpenTabs();
         // verificare text in noul tab
-        WebElement newSamplePage = driver.findElement(By.id("sampleHeading"));
+        WebElement newSamplePage = getDriver().findElement(By.id("sampleHeading"));
         System.out.println("Textul from the new tab is " + newSamplePage.getText());
         windowsMethods.close();
 
@@ -53,12 +53,12 @@ public class BrowserWindouwsTabs extends ShareData {
         windowsMethods.swithcnToMainTab();
 
         // Schimba foculus seleniniumului pe noul Window
-        WebElement newWindow = driver.findElement(By.id("windowButton"));
+        WebElement newWindow = getDriver().findElement(By.id("windowButton"));
         newWindow.click();
         windowsMethods.switchToOpenWindow();
-        WebElement newWindowSamplePage = driver.findElement(By.id("sampleHeading"));
+        WebElement newWindowSamplePage = getDriver().findElement(By.id("sampleHeading"));
         System.out.println("Textul from the new window is " + newWindowSamplePage.getText());
-        driver.close();
+        getDriver().close();
 
         // Schimba foculus seleniniumului pe window-ul initial
         windowsMethods.switchToMainWindow();

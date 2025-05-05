@@ -24,10 +24,11 @@ public class CommonPage {
         PageFactory.initElements(driver,this);
     }
     @FindBy(xpath = "//span[@class='text']")
-    List<WebElement> subElements;
+    private  List<WebElement> subElements;
 
     public void GoToDesiredSubMeniu (String subMenu){
         javaScriptMethods.javaScriptScrollPage(0,400);
         elementsMethods.selectElementFromListByText(subElements, subMenu);
+        javaScriptMethods.javaScriptScrollPage(0, 400);
     }
 }

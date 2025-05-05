@@ -20,10 +20,10 @@ public class ElementsWebTableTest extends ShareData {
 
     @Test
     public void automationMethods() {
-        elementsMethods = new ElementsMethods(driver);
-        javaScriptMethods = new JavaScriptMethods(driver);
-        homePage = new HomePage(driver);
-        commonPage = new CommonPage(driver);
+        elementsMethods = new ElementsMethods(getDriver());
+        javaScriptMethods = new JavaScriptMethods(getDriver());
+        homePage = new HomePage(getDriver());
+        commonPage = new CommonPage(getDriver());
 
         javaScriptMethods.javaScriptScrollPage(0, 400);
         homePage.GoToDesiredMeniu("Elements");

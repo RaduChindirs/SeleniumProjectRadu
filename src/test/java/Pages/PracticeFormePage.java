@@ -24,67 +24,67 @@ public class PracticeFormePage extends CommonPage {
 //    }
 
     @FindBy(id = "firstName")
-    WebElement firstNameElement;
+    private  WebElement firstNameElement;
 
     @FindBy(id = "lastName")
-    WebElement lastNameElement;
+    private WebElement lastNameElement;
 
     @FindBy(id = "userEmail")
-    WebElement emailElement;
+    private  WebElement emailElement;
 
     @FindBy(css = "input[placeholder='Mobile Number']")
-    WebElement mobilePhoneElement;
+    private WebElement mobilePhoneElement;
 
     @FindBy(xpath = "//label[@for='gender-radio-1']")
-    WebElement maleGenderElement;
+    private  WebElement maleGenderElement;
 
     @FindBy(xpath = "//label[@for='gender-radio-2']")
-    WebElement femaleGenderElement;
+    private  WebElement femaleGenderElement;
 
     @FindBy(xpath = "//label[@for='gender-radio-3']")
-    WebElement otherGenderElement;
+    private  WebElement otherGenderElement;
 
     @FindBy(id = "currentAddress")
-    WebElement adressElement;
+    private  WebElement adressElement;
 
     @FindBy(id = "react-select-3-input")
-    WebElement stateElement;
+    private  WebElement stateElement;
 
     @FindBy(id = "react-select-4-input")
-    WebElement cityElement;
+    private  WebElement cityElement;
 
     @FindBy(xpath = "//label[@for='hobbies-checkbox-3']")
-    WebElement musicHobbyElement;
+    private  WebElement musicHobbyElement;
 
     @FindBy(xpath = "//label[@for='hobbies-checkbox-1']")
-    WebElement sportsHobbyElement;
+    private  WebElement sportsHobbyElement;
 
     @FindBy(xpath = "//label[@for='hobbies-checkbox-2']")
-    WebElement readingHobbyElement;
+    private  WebElement readingHobbyElement;
 
 //    @FindBy(xpath = "//div[@id='subjectsContainer']")
 //    WebElement subjectElement;
 
     @FindBy(id = "subjectsInput")
-    WebElement subjectElement;
+    private  WebElement subjectElement;
 
     @FindBy(id = "dateOfBirthInput")
-    WebElement dateOfBirthElement;
+    private  WebElement dateOfBirthElement;
 
     @FindBy(id="uploadPicture")
-    WebElement uploadPictures;
+    private  WebElement uploadPictures;
 
     @FindBy(xpath = "//select[@class='react-datepicker__month-select']")
-    WebElement monthSelectorElement;
+    private   WebElement monthSelectorElement;
 
     @FindBy(xpath = "//select[@class='react-datepicker__month-select']//option")
-    List<WebElement> monthsElementsList;
+    private  List<WebElement> monthsElementsList;
 
     @FindBy(xpath = "//select[@class='react-datepicker__year-select']//option")
-    List<WebElement> yearsElementsList;
+    private  List<WebElement> yearsElementsList;
 
     @FindBy(xpath = "//div[@class='react-datepicker__month']//div")
-    List<WebElement> daysElementsList;
+    private  List<WebElement> daysElementsList;
 
     public PracticeFormePage(WebDriver driver) {
         super(driver);
@@ -110,6 +110,7 @@ public class PracticeFormePage extends CommonPage {
                 elementsMethods.clickOnElements(otherGenderElement);
                 break;
         }
+        javaScriptMethods.javaScriptScrollPage(0, 400);
 
     }
 

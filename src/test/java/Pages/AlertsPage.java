@@ -21,16 +21,16 @@ public class AlertsPage extends CommonPage {
 
 
     @FindBy(id = "alertButton")
-    WebElement alertButton;
+   private WebElement alertButton;
 
     @FindBy(id = "timerAlertButton")
-    WebElement alertDelayElements;
+    private WebElement alertDelayElements;
 
     @FindBy(id = "confirmButton")
-    WebElement alertConfirmElements;
+    private WebElement alertConfirmElements;
 
     @FindBy(id = "promtButton")
-    WebElement promptButtonElements;
+    private WebElement promptButtonElements;
 
 
 

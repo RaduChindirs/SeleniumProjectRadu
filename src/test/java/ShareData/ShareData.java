@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeMethod;
 import java.time.Duration;
 
 public class ShareData {
-    public WebDriver driver;
+    private WebDriver driver;
 
     @BeforeMethod
     public void prepareBrowser() {
@@ -25,4 +25,8 @@ public class ShareData {
 //        driver.quit();
 //    }
 
+
+    public WebDriver getDriver() {
+        return driver;
+    }
 }

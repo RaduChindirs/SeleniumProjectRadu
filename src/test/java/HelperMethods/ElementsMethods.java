@@ -26,6 +26,9 @@ public class ElementsMethods {
         elements.click();
 
     }
+    public void enterElement(WebElement element){
+        element.sendKeys(Keys.ENTER);
+    }
 
     public void fillElement(WebElement element, String value) {
         element.sendKeys(value);
@@ -47,6 +50,11 @@ public class ElementsMethods {
             }
         }
     }
+
+    public void selectTextFromAnElement (WebElement webElement){
+        webElement.getText();
+    }
+
     public void fillWithActions (WebElement webElement, String value){
         actions.sendKeys(value).perform();
         waitVisibilityElement(webElement);

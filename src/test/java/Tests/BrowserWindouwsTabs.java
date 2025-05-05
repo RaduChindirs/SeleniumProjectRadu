@@ -5,6 +5,7 @@ import HelperMethods.JavaScriptMethods;
 import HelperMethods.WindowsMethods;
 import Pages.CommonPage;
 import Pages.HomePage;
+import ShareData.ShareData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -17,8 +18,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BrowserWindouwsTabs {
-    public WebDriver driver;
+public class BrowserWindouwsTabs extends ShareData {
     public ElementsMethods elementsMethods;
     public JavaScriptMethods javaScriptMethods;
     public WindowsMethods windowsMethods;
@@ -27,17 +27,14 @@ public class BrowserWindouwsTabs {
 
     @Test
     public void automationMethod() {
-        // Deschidem un browser de Chrome, o copie a browserul local
-        driver = new ChromeDriver();
-        driver.get("https://demoqa.com/");
+
+
         elementsMethods = new ElementsMethods(driver);
         javaScriptMethods = new JavaScriptMethods(driver);
         homePage = new HomePage(driver);
         commonPage = new CommonPage(driver);
         windowsMethods = new WindowsMethods(driver);
-        // definim un wait implicit pt un interval maxim de timp
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.manage().window().maximize();
+
         javaScriptMethods.javaScriptScrollPage(0, 400);
 
         homePage.GoToDesiredMeniu("Alerts, Frame & Windows");

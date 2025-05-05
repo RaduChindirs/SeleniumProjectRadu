@@ -4,6 +4,7 @@ import HelperMethods.ElementsMethods;
 import HelperMethods.JavaScriptMethods;
 import Pages.CommonPage;
 import Pages.HomePage;
+import ShareData.ShareData;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,35 +12,23 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
-public class ElementsWebTableTest {
-    public WebDriver driver;
+public class ElementsWebTableTest extends ShareData {
     public ElementsMethods elementsMethods;
     public JavaScriptMethods javaScriptMethods;
     public HomePage homePage;
     public CommonPage commonPage;
 
     @Test
-
     public void automationMethods() {
-
-        // Deschidem un browser de Chrome, o copie a browserul local
-        driver = new FirefoxDriver();
         elementsMethods = new ElementsMethods(driver);
         javaScriptMethods = new JavaScriptMethods(driver);
         homePage = new HomePage(driver);
         commonPage = new CommonPage(driver);
 
-        // Acesam o pagina web
-        driver.get("https://demoqa.com/");
-        //Maximizeaza pagina web
-        driver.manage().window().maximize();
-//
         javaScriptMethods.javaScriptScrollPage(0, 400);
         homePage.GoToDesiredMeniu("Elements");
         commonPage.GoToDesiredSubMeniu("Web Tables");
 
-
-//
 //        List<WebElement> tableElements = driver.findElements(By.xpath("//div[@class='rt-tbody']/div/div[@class='rt-tr -even' or @class='rt-tr -odd']"));
 //        Integer actualTableSize = tableElements.size();
 //

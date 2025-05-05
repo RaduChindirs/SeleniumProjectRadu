@@ -1,5 +1,6 @@
 package Pages;
 
+import HelperMethods.AlertMethods;
 import HelperMethods.ElementsMethods;
 import HelperMethods.JavaScriptMethods;
 import org.openqa.selenium.WebDriver;
@@ -13,11 +14,13 @@ public class CommonPage {
     WebDriver driver;
     ElementsMethods elementsMethods;
     JavaScriptMethods javaScriptMethods;
+    AlertMethods alertMethods;
 
     public CommonPage(WebDriver driver) {
         this.driver = driver;
         this.elementsMethods = new ElementsMethods(driver);
         this.javaScriptMethods = new JavaScriptMethods(driver);
+        this.alertMethods=new AlertMethods(driver);
         PageFactory.initElements(driver,this);
     }
     @FindBy(xpath = "//span[@class='text']")

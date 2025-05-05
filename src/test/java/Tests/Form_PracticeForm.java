@@ -5,6 +5,7 @@ import HelperMethods.JavaScriptMethods;
 import Pages.CommonPage;
 import Pages.HomePage;
 import Pages.PracticeFormePage;
+import ShareData.ShareData;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -20,9 +21,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Form_PracticeForm {
+public class Form_PracticeForm extends ShareData {
     //Define variabila globala driver
-    public WebDriver driver;
+   // public WebDriver driver; nu mai este nevoie deoarece o mosteneste de la parite ShareData
     public ElementsMethods elementsMethods;
     public JavaScriptMethods javaScriptMethods;
     public HomePage homePage;
@@ -31,9 +32,9 @@ public class Form_PracticeForm {
 
     @Test
     public void Forms() {
-        driver = new FirefoxDriver();
-        driver.get("https://demoqa.com/");
-        driver.manage().window().maximize();
+//        driver = new FirefoxDriver();
+//        driver.get("https://demoqa.com/");
+//        driver.manage().window().maximize();
         elementsMethods = new ElementsMethods(driver);
         javaScriptMethods = new JavaScriptMethods(driver);
         homePage = new HomePage(driver);
@@ -46,7 +47,7 @@ public class Form_PracticeForm {
         practiceFormePage.completeFirstRegion("Radu", "Chindirs", "r@r.com", "Fabriii de Zahar nr 11", "4556777766");
         practiceFormePage.commpleteGender("Female");
 
-//        practiceFormePage.completeSubject("Social Studies");
+//      practiceFormePage.completeSubject("Social Studies");
         javaScriptMethods.javaScriptScrollPage(0, 400);
 
 
@@ -60,8 +61,12 @@ public class Form_PracticeForm {
         hobbies.add("Sports");
         hobbies.add("Music");
         hobbies.add("Reading");
-
         practiceFormePage.completeHobbys(hobbies);
+
+        practiceFormePage.setDateOfBirth("July", "2023", "22");
+
+        practiceFormePage.selectStateAndCity("NCR", "Delhi");// !!!! Nu e ok, nu e lista cu toate valorile e indentificat doar elementul
+
 
 
 //        WebElement firstNameFiled = driver.findElement(By.id("firstName"));
@@ -99,10 +104,11 @@ public class Form_PracticeForm {
 //        WebElement dayField = driver.findElement(By.xpath("//div[@aria-label='Choose Saturday, August 2nd, 1980']"));
 //        String day = dayField.getText();
 //        elementsMethods.clickOnElements(dayField);
-//
-//
+
+
 //        String anNastereComplect = "0" + day + " " + month + "," + year;
 //        System.out.println(anNastereComplect);
+
 //
 //        WebElement pictureElement = driver.findElement(By.id("uploadPicture"));
 //        elementsMethods.uploadPictures(pictureElement);
@@ -174,7 +180,7 @@ public class Form_PracticeForm {
 //            Assert.assertEquals(coloanaLabels.getText(), expectedLables.get(i));
 //
 //        }
-//
+
     }
 }
 

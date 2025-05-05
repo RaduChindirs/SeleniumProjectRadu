@@ -3,6 +3,7 @@ package Tests;
 import HelperMethods.ElementsMethods;
 import HelperMethods.FramesMethods;
 import HelperMethods.JavaScriptMethods;
+import ShareData.ShareData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -14,8 +15,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Frames {
-    public WebDriver driver;
+public class Frames extends ShareData {
     public FramesMethods framesMethods;
     public ElementsMethods elementsMethods;
     public JavaScriptMethods javaScriptMethods;
@@ -23,27 +23,11 @@ public class Frames {
     @Test
     public void automationMethod() {
 
-
-        // Deschidem un browser de Chrome, o copie a browserul local
-        driver = new ChromeDriver();
         framesMethods=new FramesMethods(driver);
         elementsMethods=new ElementsMethods(driver);
         javaScriptMethods=new JavaScriptMethods(driver);
 
-        // Acesam o pagina web
-        driver.get("https://demoqa.com/");
-
-        // definim un wait implicit pt un interval maxim de timp
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
-        //Maximizeaza pagina web
-        driver.manage().window().maximize();
-
-
         javaScriptMethods.javaScriptScrollPage(0,400);
-//        // facem un scroll; 0 si 400 coordonate
-//        JavascriptExecutor js = (JavascriptExecutor) driver;
-//        js.executeScript("window.scrollBy(0,400)");
 
         //Click pe Elements/ Click pe Web Table/ Open the Register Form
         WebElement alertFrameWindouwElement = driver.findElement(By.xpath("//h5[text()='Alerts, Frame & Windows']"));

@@ -14,20 +14,37 @@ public class AlertMethods {
         this.driver = driver;
     }
 
-    public void interractWithAlertsOK (){
+    public void interractWithAlertsOK() {
         Alert alertOK = driver.switchTo().alert();  // ne multam cu focusul pe alerta
         alertOK.accept();
     }
-    public  void explicitAlertWait(){
+
+    public void explicitAlertWait() {
         //definim un wait explicit ca sa astepte dupa alerta
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.alertIsPresent());
     }
 
-    public void interrectWithDelayAlert (){
+    public void interrectWithDelayAlert() {
         explicitAlertWait();
         Alert alertDelay = driver.switchTo().alert();
         alertDelay.accept();
 
     }
+
+    public void interrectWithConfirmAlert() {
+        Alert alertConfirm = driver.switchTo().alert();
+        alertConfirm.dismiss();
+
+    }
+
 }
+
+
+//        WebElement promtButtonElement = driver.findElement(By.id("promtButton"));
+//        promtButtonElement.click();
+//        Alert promtButton = driver.switchTo().alert();
+//        promtButton.sendKeys("Radu Chindris");
+//        promtButton.accept();
+
+

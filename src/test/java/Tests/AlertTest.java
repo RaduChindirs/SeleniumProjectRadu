@@ -2,65 +2,64 @@ package Tests;
 
 import HelperMethods.AlertMethods;
 import HelperMethods.ElementsMethods;
+import HelperMethods.JavaScriptMethods;
+import Pages.AlertsPage;
+import Pages.CommonPage;
+import Pages.HomePage;
+import ShareData.ShareData;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import java.sql.Driver;
 import java.time.Duration;
 
-public class AlertTest {
-    public WebDriver driver;
+public class AlertTest extends ShareData {
     public ElementsMethods elementsMethods;
-    public AlertMethods alertMethods;
+    public JavaScriptMethods javaScriptMethods;
+    public HomePage homePage;
+    public CommonPage commonPage;
+    public AlertsPage alertsPage;
+
 
     @Test
-    public void automationMethod() {
-        // Deschidem un browser de Chrome, o copie a browserul local
-        driver = new ChromeDriver();
-
-        // Acesam o pagina web
-        driver.get("https://demoqa.com/");
-
-        // definim un wait implicit pt un interval maxim de timp
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
-        //Maximizeaza pagina web
-        driver.manage().window().maximize();
-
-        // facem un scroll; 0 si 400 coordonate
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,400)");
-        //Click pe Elements/ Click pe Web Table/ Open the Register Form
-
+    public void automationMethod () {
+        commonPage = new CommonPage(driver);
+        alertsPage = new AlertsPage(driver);
         elementsMethods = new ElementsMethods(driver);
-        alertMethods = new AlertMethods(driver);
+        javaScriptMethods = new JavaScriptMethods(driver);
+        homePage = new HomePage(driver);
+        homePage.GoToDesiredMeniu("Alerts, Frame & Windows");
+        commonPage.GoToDesiredSubMeniu("Alerts");
+        javaScriptMethods.javaScriptScrollPage(0, 400);
 
-        WebElement alertFrameWindouwElement = driver.findElement(By.xpath("//h5[text()='Alerts, Frame & Windows']"));
-        elementsMethods.clickOnElements(alertFrameWindouwElement);
-        // alertFrameWindouwElement.click();
+        alertsPage.alertOkElements();
+        alertsPage.alertDelayElements();
+        alertsPage.alertConfirmElements();
+       alertsPage.promtButtonElementAlert("Radu");
 
-        WebElement alertElements = driver.findElement(By.xpath("//span[text()='Alerts']"));
-        elementsMethods.clickOnElements(alertElements);
-        //   alertElements.click();
+
+
 //
-        WebElement alertOkElements = driver.findElement(By.id("alertButton"));
-        elementsMethods.clickOnElements(alertOkElements);
-        // alertOkElements.click();
-
-        alertMethods.interractWithAlertsOK();
+//        WebElement alertOkElements = driver.findElement(By.id("alertButton"));
+//        elementsMethods.clickOnElements(alertOkElements);
+//        // alertOkElements.click();
+//
+//     //   alertMethods.interractWithAlertsOK();
 //        Alert alertOK = driver.switchTo().alert();  // ne multam cu focusul pe alerta
 //        alertOK.accept();
-
-
-        WebElement alertDelayElements = driver.findElement(By.id("timerAlertButton"));
-        elementsMethods.clickOnElements(alertDelayElements);
-//        alertDelayElements.click();
-
-
-        alertMethods.interrectWithDelayAlert();
+//
+//
+//        WebElement alertDelayElements = driver.findElement(By.id("timerAlertButton"));
+//        elementsMethods.clickOnElements(alertDelayElements);
+////        alertDelayElements.click();
+//
+//
+//        alertMethods.interrectWithDelayAlert();
         //definim un wait explicit ca sa astepte dupa alerta
 //        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 //        wait.until(ExpectedConditions.alertIsPresent());

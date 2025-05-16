@@ -20,10 +20,10 @@ public class ShareData {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
-//    @AfterMethod
-//    public void clearBrowser() {
-//        driver.quit();
-//    }
+    @AfterMethod
+    public void clearBrowser() {
+        driver.quit();
+    }
 
 
     public WebDriver getDriver() {

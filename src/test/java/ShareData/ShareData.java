@@ -1,5 +1,7 @@
 package ShareData;
 
+import configFile.ConfigFile;
+import configFile.configNode.ConfigurationNode;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,8 +16,9 @@ public class ShareData {
 
     @BeforeMethod
     public void prepareBrowser() {
+        ConfigurationNode configurationNode= ConfigFile.createConfingNode(ConfigurationNode.class);
         driver = new ChromeDriver();
-        driver.get("https://demoqa.com/");
+        driver.get(configurationNode.driverConfigNode.url);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }

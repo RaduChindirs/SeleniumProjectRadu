@@ -32,7 +32,7 @@
     </dependencies>
     <profiles>
         <profile>
-            <id>CustomeSuite</id>
+            <id>CustomSuite</id>
             <build>
                 <plugins>
                     <plugin>

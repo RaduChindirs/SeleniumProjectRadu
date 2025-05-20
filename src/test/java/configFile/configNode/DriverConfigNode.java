@@ -21,4 +21,7 @@ public class DriverConfigNode {
     @XmlElement(name="Gpu")
     public String gpu;
 
+    @XmlElement(name="Extensions")
+    public String extensions;
+
 }

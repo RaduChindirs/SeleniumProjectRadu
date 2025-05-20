@@ -7,4 +7,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class ConfigurationNode {
     @XmlElement(name="DriverConfig")
     public DriverConfigNode driverConfigNode;
+    @XmlElement(name="DataBaseConfigNode")
+    public DataBaseConfigNode dataBaseConfigNode;
 }

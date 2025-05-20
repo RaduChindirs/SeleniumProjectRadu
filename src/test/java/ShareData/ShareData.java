@@ -1,5 +1,6 @@
 package ShareData;
 
+import ShareData.browser.BrowserFactory;
 import configFile.ConfigFile;
 import configFile.configNode.ConfigurationNode;
 import org.openqa.selenium.WebDriver;
@@ -16,18 +17,11 @@ public class ShareData {
 
     @BeforeMethod
     public void prepareBrowser() {
-        ConfigurationNode configurationNode= ConfigFile.createConfingNode(ConfigurationNode.class);
-        driver = new ChromeDriver();
-        driver.get(configurationNode.driverConfigNode.url);
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver = new BrowserFactory().getBrowserFactory();
     }
 
     @AfterMethod
-    public void clearBrowser() {
-        driver.quit();
-    }
-
+    public void clearBrowser() {driver.quit();}
 
     public WebDriver getDriver() {
         return driver;

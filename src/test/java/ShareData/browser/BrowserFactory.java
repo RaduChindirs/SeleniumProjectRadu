@@ -12,6 +12,7 @@ public class BrowserFactory {
     public WebDriver getBrowserFactory() {
         String ciCd = System.getProperty("ciCd");
         String browser = System.getProperty("browser").toLowerCase(Locale.ROOT);
+        System.out.println("Uitat-te aici " + browser);
         ConfigurationNode configurationNode = ConfigFile.createConfingNode(ConfigurationNode.class);
         if (Boolean.parseBoolean(ciCd)) {
             configurationNode.driverConfigNode.headLess = "--headless";

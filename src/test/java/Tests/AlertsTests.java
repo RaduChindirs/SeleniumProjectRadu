@@ -6,7 +6,7 @@ import Pages.HomePage;
 import ShareData.Hooks;
 import org.testng.annotations.Test;
 
-public class AlertsTest extends Hooks {
+public class AlertsTests extends Hooks {
     public HomePage homePage;
     public CommonPage commonPage;
     public AlertsPage alertsPage;

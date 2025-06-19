@@ -1,6 +1,7 @@
 package Pages;
 
 import HelperMethods.*;
+import logger.LoggerUtility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,7 +31,9 @@ public class CommonPage {
 
     public void GoToDesiredSubMeniu (String subMenu){
         javaScriptMethods.javaScriptScrollPage(0,400);
+        LoggerUtility.infoLog("The user scrolls down the page");
         elementsMethods.selectElementFromListByText(subElements, subMenu);
+        LoggerUtility.infoLog("The user selects from a submenu the option with value :" + subMenu);
       //  javaScriptMethods.javaScriptScrollPage(0, 400);
     }
 }

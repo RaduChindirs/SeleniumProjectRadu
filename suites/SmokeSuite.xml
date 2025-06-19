@@ -3,8 +3,8 @@
 <suite name="SmokeSuite" parallel="classes" thread-count="5">
     <test name="SmokeSuite">
 <classes>
-    <class name="Tests.AlertsFrameWindows_Alerts"/>
-    <class name="Tests.AlertsFrameWindows_Frames"/>
+    <class name="Tests.AlertsTest"/>
+    <class name="Tests.FramesTests"/>
 </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->

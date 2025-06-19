@@ -15,12 +15,12 @@ import java.time.Duration;
 public class ShareData {
     private WebDriver driver;
 
-    @BeforeMethod
+
     public void prepareBrowser() {
         driver = new BrowserFactory().getBrowserFactory();
     }
 
-    @AfterMethod
+
     public void clearBrowser() {driver.quit();}
 
     public WebDriver getDriver() {

@@ -1,29 +1,14 @@
 package Tests;
 
-import HelperMethods.ElementsMethods;
-import HelperMethods.JavaScriptMethods;
 import ObjectData.PracticeFormObject;
 import Pages.CommonPage;
 import Pages.HomePage;
 import Pages.PracticeFormePage;
 import PropertyUtility.PropertyUtility;
-import ShareData.ShareData;
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
+import ShareData.Hooks;
 import org.testng.annotations.Test;
 
-import java.io.File;
-import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-public class Form_PracticeForm extends ShareData {
+public class PracticeFormTest extends Hooks {
     public HomePage homePage;
     public CommonPage commonPage;
     public PracticeFormePage practiceFormePage;

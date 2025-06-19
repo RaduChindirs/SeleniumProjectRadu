@@ -3,10 +3,10 @@ package Tests;
 import Pages.AlertsPage;
 import Pages.CommonPage;
 import Pages.HomePage;
-import ShareData.ShareData;
+import ShareData.Hooks;
 import org.testng.annotations.Test;
 
-public class AlertsFrameWindows_Alerts extends ShareData {
+public class AlertsTest extends Hooks {
     public HomePage homePage;
     public CommonPage commonPage;
     public AlertsPage alertsPage;

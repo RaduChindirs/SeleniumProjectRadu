@@ -3,10 +3,10 @@ package Tests;
 import Pages.BrowserWindowsPage;
 import Pages.CommonPage;
 import Pages.HomePage;
-import ShareData.ShareData;
+import ShareData.Hooks;
 import org.testng.annotations.Test;
 
-public class AlertsFrameWindows_BrowserWindouwsTabs extends ShareData {
+public class BrowserWindowsTests extends Hooks{
     public HomePage homePage;
     public CommonPage commonPage;
     public BrowserWindowsPage browserWindowsPage;

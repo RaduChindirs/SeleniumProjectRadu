@@ -3,9 +3,9 @@
 <suite name="SmokeSuite" parallel="classes" thread-count="5">
     <test name="SmokeSuite">
         <classes>
-            <class name="Tests.AlertsFrameWindows_Alerts"/>
-            <class name="Tests.Form_PracticeForm"/>
-            <class name="Tests.Elements_WebTables"/>
+            <class name="Tests.AlertsTest"/>
+            <class name="Tests.PracticeFormTest"/>
+            <class name="Tests.WebTablesTests"/>
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->

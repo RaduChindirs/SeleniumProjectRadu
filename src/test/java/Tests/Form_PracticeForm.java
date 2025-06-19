@@ -2,9 +2,11 @@ package Tests;
 
 import HelperMethods.ElementsMethods;
 import HelperMethods.JavaScriptMethods;
+import ObjectData.PracticeFormObject;
 import Pages.CommonPage;
 import Pages.HomePage;
 import Pages.PracticeFormePage;
+import PropertyUtility.PropertyUtility;
 import ShareData.ShareData;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -26,35 +28,40 @@ public class Form_PracticeForm extends ShareData {
     public CommonPage commonPage;
     public PracticeFormePage practiceFormePage;
 
+
     @Test
     public void Forms() {
+        PropertyUtility propertyUtility= new PropertyUtility("Form_PracticeForm");
+        PracticeFormObject practiceFormObject=new PracticeFormObject(propertyUtility.getData());
         homePage = new HomePage(getDriver());
         commonPage = new CommonPage(getDriver());
         practiceFormePage = new PracticeFormePage(getDriver());
         homePage.GoToDesiredMeniu("Forms");
         commonPage.GoToDesiredSubMeniu("Practice Form");
-        practiceFormePage.completeFirstRegion("Radu", "Chindirs", "r@r.com", "Fabriii de Zahar nr 11", "4556777766");
-        practiceFormePage.commpleteGender("Female");
+  //      practiceFormePage.completeFirstRegion("Radu", "Chindirs", "r@r.com", "Fabriii de Zahar nr 11", "4556777766");
+        practiceFormePage.completeFirstRegion(practiceFormObject);
+        practiceFormePage.commpleteGender(practiceFormObject);
 
 //      practiceFormePage.completeSubject("Social Studies");
   //      javaScriptMethods.javaScriptScrollPage(0, 400);
 
 
-        List<String> subjects = new ArrayList<>();
-        subjects.add("Social Studies");
-        subjects.add("Maths");
-        practiceFormePage.completeSubjectWithList(subjects);
+//        List<String> subjects = new ArrayList<>();
+//        subjects.add("Social Studies");
+//        subjects.add("Maths");
+        practiceFormePage.completeSubjectWithList(practiceFormObject);
 
 
-        List<String> hobbies = new ArrayList<>();
-        hobbies.add("Sports");
-        hobbies.add("Music");
-        hobbies.add("Reading");
-        practiceFormePage.completeHobbys(hobbies);
+//        List<String> hobbies = new ArrayList<>();
+//        hobbies.add("Sports");
+//        hobbies.add("Music");
+//        hobbies.add("Reading");
+        practiceFormePage.completeHobbys(practiceFormObject);
 
         practiceFormePage.setDateOfBirth("July", "2023", "22");
 
-        practiceFormePage.selectStateAndCity("NCR", "Delhi");// !!!! Nu e ok, nu e lista cu toate valorile e indentificat doar elementul
+     //   practiceFormePage.selectStateAndCity("NCR", "Delhi");// !!!! Nu e ok, nu e lista cu toate valorile e indentificat doar elementul
+        practiceFormePage.selectStateAndCity(practiceFormObject);
 
 
 
